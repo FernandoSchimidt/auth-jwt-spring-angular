@@ -14,15 +14,19 @@ export class ProductsComponent {
     this.findAll();
   }
 
-  poducts: any[] = [];
+  products: any[] = [];
   findAll() {
-    debugger;
-    this.productService.findAll().subscribe((res:any) => {
-      this.poducts = res.data;
-      console.log(this.poducts);
-
-    },error=>{
-      alert("Error from API")
-    });
+    // debugger;
+    this.productService.findAll().subscribe(
+      (res: any) => {
+        this.products = res.data;
+        // console.log(this.products);
+      },
+      (error) => {
+        alert('Error from API');
+      }
+    );
   }
+
+  displayedColumns: string[] = ['name', 'value'];
 }
